@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.netology.radio.Radio;
-package ru.netology.radio;
+
 
 public class RadioTest {
 
