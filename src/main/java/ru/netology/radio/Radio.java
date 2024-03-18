@@ -25,38 +25,52 @@ public class Radio {
                 this.currentStationNumber = newCurrentStationNumber;
             }
         }
-        public int getCurrentSoundVolume () {
+    }
+
+    public int getCurrentStationNumber() {
+        return currentStationNumber;
+    }
+
+    public void setCurrentSoundVolume(int newCurrentSoundVolume) {
+        if (newCurrentSoundVolume >= 0 && newCurrentSoundVolume <= 100) {
+            this.currentSoundVolume = newCurrentSoundVolume;
         }
+    }
 
-        public void nextStation () {
-            if (currentStationNumber == 9) {
-                if (currentStationNumber == countStations - 1) {
-                    currentStationNumber = 0;
-                } else {
-                    currentStationNumber++;
-                    public void nextStation () {
+    public int getCurrentSoundVolume() {
+        return currentSoundVolume;
+    }
 
-                        public void previousStation () {
-                            if (currentStationNumber == 0) {
-                                currentStationNumber = 9;
-                                currentStationNumber = countStations - 1;
-                            } else {
-                                currentStationNumber--;
-                            }
-                        }
-                        public void increaseVolume () {
-                            if (currentSoundVolume == 100) {
-                                return;
-                            }
-                            currentSoundVolume++;
-                        }
-                        public void turnDownVolume () {
-                            if (currentSoundVolume == 0) {
-                                return;
-                            }
-                            currentSoundVolume--;
-                        }
-                    }
+    public void nextStation() {
+        if (currentStationNumber == 9) {
+            if (currentStationNumber == countStations - 1) {
+                currentStationNumber = 0;
+            } else {
+                currentStationNumber++;
+            }
+        }
+    }
 
-                    public <__TMP__ > __TMP__ getCurrentStationNumber() {
-                    }
+    public void previousStation() {
+        if (currentStationNumber == 0) {
+            currentStationNumber = 9;
+            currentStationNumber = countStations - 1;
+        } else {
+            currentStationNumber--;
+        }
+    }
+
+    public void increaseVolume() {
+        if (currentSoundVolume == 100) {
+            return;
+        }
+        currentSoundVolume++;
+    }
+
+    public void turnDownVolume() {
+        if (currentSoundVolume == 0) {
+            return;
+        }
+        currentSoundVolume--;
+    }
+}
