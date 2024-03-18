@@ -1,76 +1,58 @@
 package ru.netology.radio;
 
 public class Radio {
-    private int currentStationNumber;
-    private int currentSoundVolume;
-    private int countStations = 10;
-    private int currentStationNumber = 0;
-    private int currentSoundVolume = 0;
+    private int currentStation;
+    public int currentVolume;
 
-    public Radio(int countStations) {
-        this.countStations = countStations;
+
+    public int getCurrentStation() {
+        return currentStation;
     }
 
-    public Radio() {
-
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
-    public int getCountStations() {
-        return countStations;
-    }
-
-    public void setCurrentStationNumber(int newCurrentStationNumber) {
-        if (newCurrentStationNumber >= 0 && newCurrentStationNumber <= 9) {
-            if (newCurrentStationNumber >= 0 && newCurrentStationNumber <= countStations - 1) {
-                this.currentStationNumber = newCurrentStationNumber;
-            }
+    public void setCurrentStation(int newCurrentStation) { // выбор станции
+        if (newCurrentStation > 9) {
+            return;
         }
-    }
-
-    public int getCurrentStationNumber() {
-        return currentStationNumber;
-    }
-
-    public void setCurrentSoundVolume(int newCurrentSoundVolume) {
-        if (newCurrentSoundVolume >= 0 && newCurrentSoundVolume <= 100) {
-            this.currentSoundVolume = newCurrentSoundVolume;
+        if (newCurrentStation < 0) {
+            return;
         }
+        this.currentStation = newCurrentStation;
     }
 
-    public int getCurrentSoundVolume() {
-        return currentSoundVolume;
+    {
+        int newCurrentStation = 0;
+        this.currentStation = newCurrentStation;
     }
 
-    public void nextStation() {
-        if (currentStationNumber == 9) {
-            if (currentStationNumber == countStations - 1) {
-                currentStationNumber = 0;
-            } else {
-                currentStationNumber++;
-            }
-        }
-    }
-
-    public void previousStation() {
-        if (currentStationNumber == 0) {
-            currentStationNumber = 9;
-            currentStationNumber = countStations - 1;
+    public void nextStation() { // переключение на следующую станцию
+        if (currentStation == 9) {
+            currentStation = 0;
         } else {
-            currentStationNumber--;
+            currentStation++;
         }
     }
 
-    public void increaseVolume() {
-        if (currentSoundVolume == 100) {
-            return;
+    public void prevStation() { // переключение на предыдущую станцию
+        if (currentStation == 0) {
+            currentStation = 9;
+        } else {
+            currentStation--;
         }
-        currentSoundVolume++;
     }
 
-    public void turnDownVolume() {
-        if (currentSoundVolume == 0) {
-            return;
+    public void increaseVolume() { // Увеличение громкости
+        if (currentVolume < 100) {
+            currentVolume++;
         }
-        currentSoundVolume--;
+    }
+
+    public void downgradeVolume() { // Уменьшение громкости
+        if (currentVolume > 0) {
+            currentVolume--;
+        }
     }
 }
